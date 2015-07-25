@@ -193,6 +193,8 @@
       coordinatesHaveChanged = false;
     };
 
+    window.requestAnimationFrame = captureFrame.bind(self);
+
     var getCamera = function(videoSource, cb) {
 
       cb = cb || function() {};
@@ -220,6 +222,7 @@
           coordinatesHaveChanged = true;
           
           var isSetup = setupVariables(e);
+
           if(isSetup) {
             setInterval(captureFrame.bind(self), 4);
           }
